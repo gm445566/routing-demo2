@@ -27,7 +27,10 @@ export class DepartmentListComponent implements OnInit {
     });
   }
   onSelect(department) {
-    this.router.navigate(['/departments', department.id])
+    // this.router.navigate(['/departments', department.id]);
+
+    // กรณี มีการเปลี่ยนชื่อ link แล้วไม่อยากตามแก้ทุก component ที่ refer เป็นชื่อ path
+    this.router.navigate([department.id], { relativeTo: this.route });
   }
 
   // เอาไว้เป็น condition สำหรับแสดง การเลือก munu ,เป็น การ control class

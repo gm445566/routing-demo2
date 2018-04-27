@@ -29,16 +29,20 @@ export class DepartmentDetailComponent implements OnInit {
   goPrevious() {
     // tslint:disable-next-line:prefer-const
     let previousId = this.departmentId - 1;
-    this.router.navigate(['/departments', previousId]);
+    // this.router.navigate(['/departments', previousId]);
+    this.router.navigate(['../', previousId], { relativeTo: this.route });
   }
   goNext() {
     // tslint:disable-next-line:prefer-const
     let nextId = this.departmentId + 1;
-    this.router.navigate(['/departments', nextId]);
+    // this.router.navigate(['/departments', nextId]);
+    this.router.navigate(['../', nextId], { relativeTo: this.route });
   }
 
   gotoDepartments() {
     const selectdId = this.departmentId ? this.departmentId : null;
-    this.router.navigate(['/departments', { id: selectdId }]);
+    // this.router.navigate(['/departments', { id: selectdId, test: 'testparameter' }]);
+
+    this.router.navigate(['../', { id: selectdId }], { relativeTo: this.route });
   }
 }
